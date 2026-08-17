@@ -1,14 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  ALL_QUESTIONS,
-  CATEGORIES,
-  POPULAR_COUNT,
-  getRankedPopularIds,
-  matchCanonicalId,
-  type Category,
-} from '@/lib/questions';
+import { ALL_QUESTIONS, CATEGORIES, type Category } from '@/lib/questions';
 import { ICONS } from '@/lib/icons';
 
 type AppState = 'home' | 'category' | 'chat';
@@ -51,7 +44,6 @@ function BotIcon() {
 export default function Page() {
   const [appState, setAppState] = useState<AppState>('home');
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
-  const [counts, setCounts] = useState<Record<string, number>>({});
   const [messages, setMessages] = useState<Message[]>([]);
   const [pending, setPending] = useState(false); // waiting on the assistant
   const [input, setInput] = useState('');
@@ -60,22 +52,6 @@ export default function Page() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   // Mirror of messages used inside async ask() to avoid stale closures.
   const historyRef = useRef<Message[]>([]);
-
-  const loadCounts = useCallback(async () => {
-    try {
-      const res = await fetch('/api/popular');
-      if (!res.ok) return;
-      const data = await res.json();
-      if (data && data.counts) setCounts(data.counts);
-    } catch {
-      /* leave counts as-is; ranking falls back to defaults */
-    }
-  }, []);
-
-  // Load usage counts on first mount.
-  useEffect(() => {
-    loadCounts();
-  }, [loadCounts]);
 
   // Keep the chat thread scrolled to the bottom as it grows.
   useEffect(() => {
@@ -88,17 +64,6 @@ export default function Page() {
     el.style.height = 'auto';
     el.style.height = Math.min(el.scrollHeight, 110) + 'px';
   };
-
-  const bumpCount = useCallback((id: string) => {
-    if (!id || !ALL_QUESTIONS[id]) return;
-    // Optimistically reflect the bump locally so the home list updates instantly.
-    setCounts((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
-    fetch('/api/track', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
-    }).catch((e) => console.error('Could not save usage count', e));
-  }, []);
 
   const ask = useCallback(async (question: string) => {
     const userMsg: Message = { role: 'user', content: question };
@@ -137,15 +102,13 @@ export default function Page() {
   }, []);
 
   const startChat = useCallback(
-    (question: string, id?: string) => {
+    (question: string) => {
       setAppState('chat');
       historyRef.current = [];
       setMessages([]);
-      const matchedId = id || matchCanonicalId(question);
-      if (matchedId) bumpCount(matchedId);
       ask(question);
     },
-    [ask, bumpCount],
+    [ask],
   );
 
   const goHome = useCallback(() => {
@@ -153,9 +116,7 @@ export default function Page() {
     setActiveCategory(null);
     historyRef.current = [];
     setMessages([]);
-    // Refresh counts in case others have asked things since we loaded.
-    loadCounts();
-  }, [loadCounts]);
+  }, []);
 
   const openCategory = (cat: Category) => {
     setActiveCategory(cat);
@@ -187,14 +148,13 @@ export default function Page() {
         ? `Ask about ${activeCategory.title}…`
         : 'Ask a follow-up…';
 
-  const popularIds = getRankedPopularIds(counts, POPULAR_COUNT);
   const showBrowse = appState !== 'chat';
 
   const QuestionRow = ({ id }: { id: string }) => {
     const text = ALL_QUESTIONS[id];
     if (!text) return null;
     return (
-      <button type="button" className="popular-item" onClick={() => startChat(text, id)}>
+      <button type="button" className="popular-item" onClick={() => startChat(text)}>
         <span>{text}</span>
         <span className="chev">&rsaquo;</span>
       </button>
@@ -233,12 +193,6 @@ export default function Page() {
         <div className="browse">
           {appState === 'home' && (
             <>
-              <p className="section-label">Popular questions</p>
-              <div className="popular-list">
-                {popularIds.map((id) => (
-                  <QuestionRow key={id} id={id} />
-                ))}
-              </div>
               <p className="section-label">Browse by category</p>
               <div className="category-grid">
                 {CATEGORIES.map((cat) => (

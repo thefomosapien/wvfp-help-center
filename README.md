@@ -20,29 +20,18 @@ calls Anthropic, and returns just the answer text.
 
 ## Project structure
 
-- `app/page.tsx` — the three-view chat UI (Home → Category → Chat)
+- `app/page.tsx` — the three-view UI (Home category grid → Category → Chat)
 - `app/api/chat/route.ts` — server route that calls Anthropic (holds the API key)
-- `app/api/track/route.ts` — `POST { id }` → increments a usage counter in Vercel KV
-- `app/api/popular/route.ts` — `GET` → returns per-question counts for ranking
-- `lib/questions.ts` — canonical question registry, categories, matching + ranking logic
+- `lib/questions.ts` — canonical question registry and category taxonomy
 - `lib/systemPrompt.ts` — assistant instructions + knowledge base loader (cached)
-- `lib/kv.ts` — Redis (Upstash) wrapper that degrades gracefully when unconfigured
 - `data/knowledge.txt` — the rules knowledge base (static text, versioned in git)
 
-## Popular Questions (usage-tracked)
+## Navigation
 
-The home screen's "Popular Questions" list ranks itself by what people actually ask,
-not a fixed order. Popularity is tracked only against **canonical question ids** (from
-`ALL_QUESTIONS`) — never against raw typed text — so the public page only ever shows
-clean, vetted questions. Typed questions are credited toward the closest canonical id
-via a small local word-overlap matcher (`matchCanonicalId`).
-
-- A click on a suggested question, or a typed question that matches a canonical id,
-  calls `POST /api/track` once (at the start of the chat, not on follow-ups).
-- Counts persist in **Redis** (Upstash, via the Vercel Marketplace) using atomic
-  `INCR`, so concurrent visitors can't undercount each other.
-- If Redis isn't configured, the app still runs — tracking no-ops and the list falls
-  back to the default order (`DEFAULT_POPULAR_IDS`).
+The home screen shows an 8-category grid. Tapping a category lists its common
+questions; tapping any question — or typing your own in the bottom search bar — opens
+a chat thread answered live from `data/knowledge.txt`. The category/question lists are
+just a navigable front door to the same assistant; there's no pre-written FAQ content.
 
 ## Local development
 
@@ -52,8 +41,7 @@ cp .env.example .env.local   # then fill in ANTHROPIC_API_KEY
 npm run dev
 ```
 
-Only `ANTHROPIC_API_KEY` is required to run locally. Without Vercel KV env vars, the
-Popular Questions list simply uses its default order.
+Only `ANTHROPIC_API_KEY` is required to run — there is no database to configure.
 
 ## Model & cost
 
@@ -78,10 +66,7 @@ This is an unauthenticated public endpoint, so `/api/chat` includes:
 1. Get an API key at **platform.claude.com** (separate from any claude.ai subscription).
 2. Push this repo to GitHub and import it in Vercel.
 3. In the Vercel project: **Settings → Environment Variables** → add `ANTHROPIC_API_KEY`.
-4. From the project's **Storage** tab, add a **Redis** integration from the Vercel
-   Marketplace (Upstash) and connect it to this project — it auto-injects the REST URL
-   and token env vars. No schema or migrations needed.
-5. Deploy.
+4. Deploy. No database or storage integration is needed.
 
 Never commit the API key or expose it via a `NEXT_PUBLIC_*` variable.
 
