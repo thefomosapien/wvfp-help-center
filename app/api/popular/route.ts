@@ -22,7 +22,7 @@ export async function GET() {
 
   try {
     const keys = ids.map(countKey);
-    const values = await kv.mget<(number | null)[]>(...keys);
+    const values = (await kv.mget(...keys)) as (number | null)[];
     ids.forEach((id, i) => {
       counts[id] = Number(values[i] ?? 0);
     });

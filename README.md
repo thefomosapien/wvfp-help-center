@@ -26,7 +26,7 @@ calls Anthropic, and returns just the answer text.
 - `app/api/popular/route.ts` — `GET` → returns per-question counts for ranking
 - `lib/questions.ts` — canonical question registry, categories, matching + ranking logic
 - `lib/systemPrompt.ts` — assistant instructions + knowledge base loader (cached)
-- `lib/kv.ts` — Vercel KV wrapper that degrades gracefully when KV is unconfigured
+- `lib/kv.ts` — Redis (Upstash) wrapper that degrades gracefully when unconfigured
 - `data/knowledge.txt` — the rules knowledge base (static text, versioned in git)
 
 ## Popular Questions (usage-tracked)
@@ -39,10 +39,10 @@ via a small local word-overlap matcher (`matchCanonicalId`).
 
 - A click on a suggested question, or a typed question that matches a canonical id,
   calls `POST /api/track` once (at the start of the chat, not on follow-ups).
-- Counts persist in **Vercel KV** using atomic `INCR`, so concurrent visitors can't
-  undercount each other.
-- If KV isn't configured, the app still runs — tracking no-ops and the list falls back
-  to the default order (`DEFAULT_POPULAR_IDS`).
+- Counts persist in **Redis** (Upstash, via the Vercel Marketplace) using atomic
+  `INCR`, so concurrent visitors can't undercount each other.
+- If Redis isn't configured, the app still runs — tracking no-ops and the list falls
+  back to the default order (`DEFAULT_POPULAR_IDS`).
 
 ## Local development
 
@@ -78,8 +78,9 @@ This is an unauthenticated public endpoint, so `/api/chat` includes:
 1. Get an API key at **platform.claude.com** (separate from any claude.ai subscription).
 2. Push this repo to GitHub and import it in Vercel.
 3. In the Vercel project: **Settings → Environment Variables** → add `ANTHROPIC_API_KEY`.
-4. From the project's **Storage** tab, create a **Vercel KV** store — it auto-injects
-   `KV_REST_API_URL` and `KV_REST_API_TOKEN`. No schema or migrations needed.
+4. From the project's **Storage** tab, add a **Redis** integration from the Vercel
+   Marketplace (Upstash) and connect it to this project — it auto-injects the REST URL
+   and token env vars. No schema or migrations needed.
 5. Deploy.
 
 Never commit the API key or expose it via a `NEXT_PUBLIC_*` variable.
