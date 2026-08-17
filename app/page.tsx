@@ -162,7 +162,7 @@ export default function Page() {
   };
 
   return (
-    <div className="app">
+    <div className={appState === 'chat' ? 'app chat' : 'app'}>
       <header>
         <div className="headings">
           <h1>
@@ -173,13 +173,15 @@ export default function Page() {
 
       <div className="stitch" />
 
-      <div className="intro">
-        <p>
-          Answers come from WVFP&apos;s Rules &amp; Regulations, By-Laws, waiver forms, and D1
-          Prospects&apos; tournament rules — not an official ruling. For real disputes, the WVFP
-          Board (or D1 Prospects for tournaments) has final say.
-        </p>
-      </div>
+      {appState !== 'chat' && (
+        <div className="intro">
+          <p>
+            Answers come from WVFP&apos;s Rules &amp; Regulations, By-Laws, waiver forms, and D1
+            Prospects&apos; tournament rules — not an official ruling. For real disputes, the WVFP
+            Board (or D1 Prospects for tournaments) has final say.
+          </p>
+        </div>
+      )}
 
       {appState !== 'home' && (
         <div className="backrow">

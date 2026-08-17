@@ -10,6 +10,10 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
+  // Extend the page under the notch / rounded corners so env(safe-area-inset-*)
+  // padding actually takes effect. Zoom is intentionally left enabled for a11y.
+  viewportFit: 'cover',
+  themeColor: '#FAF9F5',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
