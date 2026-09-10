@@ -171,7 +171,7 @@ export const DIVISIONS: Division[] = [
         id: 'notes',
         title: 'Division Notes',
         facts: [
-          { text: 'Stealing is allowed after the ball leaves the pitcher’s hand — any base, including home, at the runner’s own risk.', source: 'wvfp' },
+          { text: 'Stealing is allowed after the ball leaves the pitcher’s hand — runners may steal any base at their own risk, with one exception for scoring from third (see the 10U scoring restriction below).', source: 'wvfp' },
           { text: '10U scoring restriction: a runner may not score from third on a wild pitch from the pitcher to the catcher. She may score from third on a batted ball, a defensive play/throw, or by stealing home when the defense makes a play.', source: 'wvfp' },
           { text: 'Dropped third strike is in effect: with fewer than 2 outs and first base open, the batter may try for first if it isn’t caught; with first base occupied she’s out; with 2 outs, the batter and runners may advance at their own risk.', source: 'wvfp' },
           { text: 'Defense: up to 4 outfielders and 6 infielders; outfielders stay on the grass until the ball crosses the plate.', source: 'wvfp' },
