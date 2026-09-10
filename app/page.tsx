@@ -3,8 +3,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { ALL_QUESTIONS, CATEGORIES, type Category } from '@/lib/questions';
 import { ICONS } from '@/lib/icons';
+import {
+  DIVISIONS,
+  DISCLAIMER,
+  SOURCE_LABELS,
+  type Division,
+  type SourceTag,
+} from '@/lib/divisions';
 
-type AppState = 'home' | 'category' | 'chat';
+type AppState = 'home' | 'category' | 'division' | 'chat';
+type HomeTab = 'divisions' | 'topics';
 type Role = 'user' | 'assistant';
 interface Message {
   role: Role;
@@ -43,7 +51,10 @@ function BotIcon() {
 
 export default function Page() {
   const [appState, setAppState] = useState<AppState>('home');
+  const [homeTab, setHomeTab] = useState<HomeTab>('divisions');
   const [activeCategory, setActiveCategory] = useState<Category | null>(null);
+  const [activeDivision, setActiveDivision] = useState<Division | null>(null);
+  const [openSecs, setOpenSecs] = useState<Record<string, boolean>>({});
   const [messages, setMessages] = useState<Message[]>([]);
   const [pending, setPending] = useState(false); // waiting on the assistant
   const [input, setInput] = useState('');
@@ -114,6 +125,7 @@ export default function Page() {
   const goHome = useCallback(() => {
     setAppState('home');
     setActiveCategory(null);
+    setActiveDivision(null);
     historyRef.current = [];
     setMessages([]);
   }, []);
@@ -121,6 +133,21 @@ export default function Page() {
   const openCategory = (cat: Category) => {
     setActiveCategory(cat);
     setAppState('category');
+  };
+
+  const openDivision = (div: Division) => {
+    setActiveDivision(div);
+    // Open the first subtopic by default, rest collapsed.
+    const initial: Record<string, boolean> = {};
+    div.subtopics.forEach((s, i) => {
+      initial[s.id] = i === 0;
+    });
+    setOpenSecs(initial);
+    setAppState('division');
+  };
+
+  const toggleSec = (id: string) => {
+    setOpenSecs((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   const onSubmit = (e: React.FormEvent) => {
@@ -146,7 +173,9 @@ export default function Page() {
       ? 'Search rules or ask a question…'
       : appState === 'category' && activeCategory
         ? `Ask about ${activeCategory.title}…`
-        : 'Ask a follow-up…';
+        : appState === 'division' && activeDivision
+          ? `Ask about ${activeDivision.name} rules…`
+          : 'Ask a follow-up…';
 
   const showBrowse = appState !== 'chat';
 
@@ -186,7 +215,7 @@ export default function Page() {
       {appState !== 'home' && (
         <div className="backrow">
           <button type="button" className="back-btn" onClick={goHome}>
-            &larr; All topics
+            &larr; {appState === 'division' ? 'All divisions' : 'All topics'}
           </button>
         </div>
       )}
@@ -195,21 +224,113 @@ export default function Page() {
         <div className="browse">
           {appState === 'home' && (
             <>
-              <p className="section-label">Browse by category</p>
-              <div className="category-grid">
-                {CATEGORIES.map((cat) => (
-                  <button
-                    key={cat.id}
-                    type="button"
-                    className="category-card"
-                    onClick={() => openCategory(cat)}
-                  >
-                    <span className="cat-icon" dangerouslySetInnerHTML={{ __html: ICONS[cat.icon] }} />
-                    <span className="cat-title">{cat.title}</span>
-                    <span className="cat-blurb">{cat.blurb}</span>
-                  </button>
-                ))}
+              <div className="tabs" role="tablist" aria-label="Browse mode">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={homeTab === 'divisions'}
+                  className={homeTab === 'divisions' ? 'tab active' : 'tab'}
+                  onClick={() => setHomeTab('divisions')}
+                >
+                  Rules by division
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={homeTab === 'topics'}
+                  className={homeTab === 'topics' ? 'tab active' : 'tab'}
+                  onClick={() => setHomeTab('topics')}
+                >
+                  Browse topics
+                </button>
               </div>
+
+              {homeTab === 'divisions' ? (
+                <>
+                  <p className="section-label">Rules by age division</p>
+                  <div className="division-list">
+                    {DIVISIONS.map((div) => (
+                      <button
+                        key={div.id}
+                        type="button"
+                        className="division-card"
+                        onClick={() => openDivision(div)}
+                      >
+                        <span className="division-badge">{div.name}</span>
+                        <span className="division-text">
+                          <span className="division-ages">{div.ages}</span>
+                          <span className="division-blurb">{div.blurb}</span>
+                        </span>
+                        <span className="chev">&rsaquo;</span>
+                      </button>
+                    ))}
+                  </div>
+                  <p className="reference-note">{DISCLAIMER}</p>
+                </>
+              ) : (
+                <>
+                  <p className="section-label">Browse by category</p>
+                  <div className="category-grid">
+                    {CATEGORIES.map((cat) => (
+                      <button
+                        key={cat.id}
+                        type="button"
+                        className="category-card"
+                        onClick={() => openCategory(cat)}
+                      >
+                        <span className="cat-icon" dangerouslySetInnerHTML={{ __html: ICONS[cat.icon] }} />
+                        <span className="cat-title">{cat.title}</span>
+                        <span className="cat-blurb">{cat.blurb}</span>
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </>
+          )}
+
+          {appState === 'division' && activeDivision && (
+            <>
+              <div className="category-detail-head">
+                <span className="division-badge lg">{activeDivision.name}</span>
+                <h2>{activeDivision.ages}</h2>
+                <p className="category-detail-blurb">{activeDivision.blurb}</p>
+              </div>
+              <div className="accordion">
+                {activeDivision.subtopics.map((sub) => {
+                  const open = !!openSecs[sub.id];
+                  return (
+                    <div key={sub.id} className={open ? 'acc-item open' : 'acc-item'}>
+                      <button
+                        type="button"
+                        className="acc-head"
+                        aria-expanded={open}
+                        onClick={() => toggleSec(sub.id)}
+                      >
+                        <span>{sub.title}</span>
+                        <span className="acc-caret" aria-hidden="true">
+                          {open ? '−' : '+'}
+                        </span>
+                      </button>
+                      {open && (
+                        <ul className="acc-body">
+                          {sub.facts.map((f, i) => (
+                            <li key={i}>
+                              <span className="fact-text">{f.text}</span>
+                              <span className={`src src-${f.source}`}>
+                                {SOURCE_LABELS[f.source as SourceTag]}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="reference-note">
+                Not seeing what you need? Use the search bar below to ask the assistant.
+              </p>
             </>
           )}
 

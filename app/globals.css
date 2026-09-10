@@ -140,6 +140,81 @@ h1 span { color: var(--teal); }
 }
 .category-detail-blurb { font-size: 12.5px; color: var(--muted); margin: 4px 0 0; }
 
+/* ---------- Tabs (home segmented control) ---------- */
+.tabs {
+  display: flex; gap: 4px; background: var(--chalk); border: 1px solid var(--line);
+  border-radius: 12px; padding: 4px; margin-bottom: 16px;
+}
+.tab {
+  flex: 1; border: none; background: none; cursor: pointer;
+  font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+  color: var(--muted); padding: 9px 8px; border-radius: 9px; min-height: 40px;
+  touch-action: manipulation; transition: background .15s ease, color .15s ease;
+}
+.tab.active { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(20,23,26,.06); }
+.tab:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+/* ---------- Division list (help center) ---------- */
+.division-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.division-card {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px; cursor: pointer; text-align: left;
+  font-family: 'Inter', sans-serif; min-height: 60px;
+  transition: border-color .15s ease, background .15s ease; touch-action: manipulation;
+}
+.division-card:active { background: var(--teal-pale); }
+.division-card:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.division-badge {
+  flex-shrink: 0; min-width: 46px; text-align: center;
+  background: var(--teal-pale); color: var(--teal-deep);
+  font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 16px;
+  letter-spacing: .02em; padding: 6px 8px; border-radius: 9px;
+}
+.division-badge.lg { font-size: 22px; padding: 8px 12px; min-width: 60px; }
+.division-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.division-ages { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+.division-blurb { font-size: 12px; color: var(--muted); line-height: 1.4; }
+.division-card .chev { color: var(--muted); font-size: 18px; line-height: 1; flex-shrink: 0; }
+
+.reference-note {
+  font-size: 12px; color: var(--muted); line-height: 1.5; margin: 4px 0 6px;
+}
+
+/* ---------- Accordion (division detail) ---------- */
+.accordion { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.acc-item { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.acc-item.open { border-color: var(--teal); }
+.acc-head {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: none; border: none; cursor: pointer; text-align: left;
+  font-family: 'Inter', sans-serif; font-size: 14.5px; font-weight: 600; color: var(--ink);
+  padding: 13px 14px; min-height: 48px; touch-action: manipulation;
+}
+.acc-head:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+.acc-item.open .acc-head { color: var(--teal-deep); }
+.acc-caret { color: var(--muted); font-size: 20px; line-height: 1; flex-shrink: 0; }
+.acc-body { list-style: none; margin: 0; padding: 0 14px 6px; }
+.acc-body li {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+  padding: 10px 0; border-top: 1px solid var(--line);
+}
+.fact-text { font-size: 13.5px; line-height: 1.5; color: var(--ink); flex: 1; }
+.src {
+  flex-shrink: 0; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px;
+  letter-spacing: .04em; text-transform: uppercase; white-space: nowrap;
+  padding: 3px 7px; border-radius: 6px; margin-top: 1px;
+}
+.src-wvfp { background: var(--teal-pale); color: var(--teal-deep); }
+.src-d1 { background: rgba(196, 80, 47, .12); color: var(--clay); }
+.src-nfhs { background: var(--chalk); color: var(--muted); }
+
+@media (hover: hover) {
+  .tab:hover { color: var(--ink); }
+  .division-card:hover { border-color: var(--teal); }
+  .acc-head:hover { color: var(--teal-deep); }
+}
+
 /* ---------- Message list (chat) ---------- */
 .thread {
   flex: 1; overflow-y: auto;
