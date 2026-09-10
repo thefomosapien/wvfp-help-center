@@ -237,10 +237,10 @@ export const DIVISIONS: Division[] = [
     ],
   },
   {
-    id: '14u',
-    name: '14U',
-    ages: 'Ages 14 and under',
-    blurb: 'Full-distance fast pitch heading into the older divisions.',
+    id: '1418u',
+    name: '14/18U',
+    ages: 'Ages 14 to 18',
+    blurb: 'Full-distance fast pitch for the older divisions.',
     subtopics: [
       {
         id: 'field',
@@ -258,14 +258,14 @@ export const DIVISIONS: Division[] = [
           { text: 'Games are 70 minutes.', source: 'wvfp' },
           { text: 'A 6-run rule or mercy rule applies.', source: 'wvfp' },
           { text: 'On a tie, one extra inning is played using the International Tie Breaker; if still tied, each team earns one standings point.', source: 'wvfp' },
-          { text: 'A team needs at least 8 players; playing with 8, an out is recorded for the missing 9th spot.', source: 'wvfp' },
+          { text: '14U needs at least 8 players (an out is recorded for the missing 9th spot); 18U needs only 7 (an out is recorded for the missing 8th spot).', source: 'wvfp' },
         ],
       },
       {
         id: 'pitching',
         title: 'Pitching',
         facts: [
-          { text: 'Standard limit is 15 pitching outs per week (a “week” is two consecutive scheduled games).', source: 'wvfp' },
+          { text: 'Standard weekly pitching-out limit: 15 outs for 14U, 18 outs for 18U (a “week” is two consecutive scheduled games).', source: 'wvfp' },
           { text: 'Note: a recent season tested suspending pitch-count limits — confirm the current rule with the WVFP Board.', source: 'wvfp' },
           { text: 'Exceeding the pitching limit is a forfeit for the violating team.', source: 'wvfp' },
         ],
@@ -292,72 +292,9 @@ export const DIVISIONS: Division[] = [
         id: 'tournament',
         title: 'Tournament Play (D1)',
         facts: [
-          { text: 'D1 tournament pitching distance for 14U is 43 feet.', source: 'd1' },
-          { text: 'The 14U championship game runs about 90 minutes.', source: 'd1' },
+          { text: 'D1 tournament pitching distance is 43 feet.', source: 'd1' },
+          { text: 'Championship games run about 90 minutes.', source: 'd1' },
           { text: 'Metal cleats ARE allowed for 14U/16U/18U at D1 tournaments — this differs from WVFP’s blanket ban. No metal cleats at a regular WVFP league game; older divisions may wear them at a D1-sanctioned tournament.', source: 'd1' },
-        ],
-      },
-    ],
-  },
-  {
-    id: '18u',
-    name: '18U',
-    ages: 'Ages 18 and under',
-    blurb: 'The oldest WVFP division, full high-school-size field.',
-    subtopics: [
-      {
-        id: 'field',
-        title: 'Field & Distances',
-        facts: [
-          { text: 'Pitching distance: 43 feet.', source: 'wvfp' },
-          { text: 'Base paths: 60 feet.', source: 'wvfp' },
-          { text: 'Ball: 12-inch.', source: 'wvfp' },
-        ],
-      },
-      {
-        id: 'format',
-        title: 'Game Format',
-        facts: [
-          { text: 'Games are 70 minutes.', source: 'wvfp' },
-          { text: 'A 6-run rule or mercy rule applies.', source: 'wvfp' },
-          { text: 'On a tie, one extra inning is played using the International Tie Breaker; if still tied, each team earns one standings point.', source: 'wvfp' },
-          { text: 'A team needs only 7 players (vs. 8 for younger divisions); playing with 7, an out is recorded for the missing 8th spot.', source: 'wvfp' },
-        ],
-      },
-      {
-        id: 'pitching',
-        title: 'Pitching',
-        facts: [
-          { text: 'Standard limit is 18 pitching outs per week (a “week” is two consecutive scheduled games).', source: 'wvfp' },
-          { text: 'Note: a recent season tested suspending pitch-count limits — confirm the current rule with the WVFP Board.', source: 'wvfp' },
-          { text: 'Exceeding the pitching limit is a forfeit for the violating team.', source: 'wvfp' },
-        ],
-      },
-      {
-        id: 'equipment',
-        title: 'Equipment',
-        facts: [
-          { text: '12-inch ball.', source: 'wvfp' },
-          { text: 'Metal cleats are not allowed at any WVFP activity — but see Tournament Play for how this differs at D1 events.', source: 'wvfp' },
-          { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
-          { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
-        ],
-      },
-      {
-        id: 'notes',
-        title: 'Division Notes',
-        facts: [
-          { text: 'Play follows USA Softball rules except where WVFP’s own rules modify them.', source: 'wvfp' },
-          { text: 'Roving outfielders are allowed; all outfielders and the rover must stay at least 5 feet behind the baseline until the pitch is made.', source: 'wvfp' },
-        ],
-      },
-      {
-        id: 'tournament',
-        title: 'Tournament Play (D1)',
-        facts: [
-          { text: 'D1 tournament pitching distance for 18U is 43 feet.', source: 'd1' },
-          { text: 'The 18U championship game runs about 90 minutes.', source: 'd1' },
-          { text: 'Metal cleats ARE allowed for 18U at D1 tournaments — unlike a regular WVFP league game, where they are never allowed.', source: 'd1' },
         ],
       },
     ],
