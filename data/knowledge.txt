@@ -4189,7 +4189,7 @@ infield; coaches may not physically assist runners (runner called out).
 Quick reference: no new inning after 55 minutes; 5 runs or 3 outs per half-inning; pitching 35 ft; bases 60 ft;
 11-inch ball; stealing allowed after the ball leaves the pitcher's hand; dropped third strike in effect (with the
 10U wild-pitch scoring restriction); coach pitch not allowed; metal cleats not allowed.
-Hit-batter limit: a pitcher must leave the pitching position after hitting 2 batters in the same inning (she may
+Hit-batter limit: a pitcher must leave the pitching position after hitting 3 batters in the same inning (she may
 play another position and return to pitch in a later inning); after returning, she must leave again after every 3
 additional batters hit, for the rest of the game.
 Age: players must be 10 or younger prior to Sept 1 of the previous year; may not play down.

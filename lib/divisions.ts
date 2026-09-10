@@ -153,7 +153,7 @@ export const DIVISIONS: Division[] = [
         title: 'Pitching',
         facts: [
           { text: 'Players pitch — coach pitch is not allowed.', source: 'wvfp' },
-          { text: 'Hit-batter limit: a pitcher must leave the pitching position after hitting 2 batters in the same inning (she may play another position and return to pitch in a later inning).', source: 'wvfp' },
+          { text: 'Hit-batter limit: a pitcher must leave the pitching position after hitting 3 batters in the same inning (she may play another position and return to pitch in a later inning).', source: 'wvfp' },
           { text: 'After returning, she must leave the pitching position again after every 3 additional batters she hits, for the rest of the game.', source: 'wvfp' },
         ],
       },
