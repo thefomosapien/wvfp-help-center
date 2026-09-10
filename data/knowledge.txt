@@ -4170,8 +4170,9 @@ formation, all-stars, coaches and conduct, insurance, snack bar, etc.). NFHS fil
 
 --- 8U Fall Ball 2026 ---
 Quick reference: no new inning after 55 minutes; 5 runs or 3 outs per half-inning; pitching 35 ft; bases 60 ft;
-11-inch ball; no stealing; no dropped third strike; no walks or hit-by-pitch; coach pitch used; tee allowed Games
-1-5 (first time through the lineup only), prohibited from Game 6 on; metal cleats not allowed.
+11-inch ball; no stealing; no dropped third strike; no walks or hit-by-pitch; coach pitch used; tee allowed during
+the first half of the season's games (e.g., Games 1-5 of a 10-game season), first time through the lineup only;
+metal cleats not allowed.
 Age: players must be 8 or younger prior to Sept 1 of the previous year; may not play down an age classification.
 Field/equipment: pitching mound 35 ft, bases 60 ft; 11-inch ball; face masks encouraged (not required); no metal
 cleats.
@@ -4180,11 +4181,11 @@ the umpire scorecard is official on any discrepancy; coaches bring a complete li
 name/number, player names, jersey numbers) to the plate pre-game; a half-inning ends at 3 outs or 5 runs (only an
 over-the-fence home run may exceed 5).
 Defense: the infield is inside the baselines; 6 infielders start behind the 35-ft arc near the pitcher's circle
-until the ball is hit; remaining players play outfield and start on the grass; one defensive coach is allowed in
-the outfield for instruction only (discouraged in the second half of the season; not allowed in the end-of-season
-tournament); defensive-coach interference awards the runner their base plus one (warning, then the coach must leave).
-Coach pitch: a coach pitches underhand and must stay in contact with the pitching mound; the coach may only talk to
-batters/runners between pitches; if the coach interferes with a batted ball the batter/runner is out and runners
+until the ball is hit; remaining players play outfield and start on the grass; up to two instructional defensive
+coaches are allowed in the outfield (the same limit applies during tournaments); defensive-coach interference
+awards the runner their base plus one (warning, then the coach must leave).
+Coach pitch: a coach pitches underhand and must start from the pitching mound when delivering the pitch (they need
+not stay in contact with it); the coach may only talk to batters/runners between pitches; if the coach interferes with a batted ball the batter/runner is out and runners
 return; if a batted ball hits the coach while dodging, the ball is live; defense throws to the player/pitcher, not
 the coach.
 Batting: 5 pitches or 3 strikes; a foul on the last pitch extends the at-bat; no intentional bunting; no infield
@@ -4252,5 +4253,10 @@ Baserunning & stealing: steal after release, advancing as many bases as chosen a
 strike in effect; slide when a play is being made; coaches may not physically assist runners.
 Other: coach pitch is not allowed; NFHS rules apply where these rules are silent.
 
-For all Fall Ball divisions: questions or unusual situations are handled calmly through the umpire during the game
-and reported to the WVFP Board when needed.
+For all Fall Ball divisions:
+- Courtesy runners (used for the pitcher and catcher in 10U and up): when a courtesy runner may be swapped is at the
+  umpire's discretion (not fixed to a specific pitch or batter).
+- Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the
+  player and head coach removed. If a player doesn't have their own helmet or bat, WVFP has them available to use.
+- Questions or unusual situations are handled calmly through the umpire during the game and reported to the WVFP
+  Board when needed.

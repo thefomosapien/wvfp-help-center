@@ -44,7 +44,7 @@ export const DISCLAIMER =
 const LINEUP_FACTS: Fact[] = [
   { text: 'Teams bat all players present. A player in the lineup who is absent for her at-bat takes an out each time her spot comes up until she arrives.', source: 'wvfp' },
   { text: 'A coach may remove an absent player from the lineup (she then may not be re-added); a player who becomes sick or injured may not reenter the game.', source: 'wvfp' },
-  { text: 'Courtesy runners may be used for the pitcher and catcher.', source: 'wvfp' },
+  { text: 'Courtesy runners may be used for the pitcher and catcher. When a courtesy runner may be swapped is at the umpire’s discretion.', source: 'wvfp' },
 ];
 
 const ADMIN_FACTS: Fact[] = [
@@ -84,7 +84,7 @@ export const DIVISIONS: Division[] = [
         id: 'pitching',
         title: 'Pitching (Coach Pitch)',
         facts: [
-          { text: 'A coach pitches underhand to their own team and must stay in contact with the pitching mound.', source: 'wvfp' },
+          { text: 'A coach pitches underhand to their own team and must start from the pitching mound when delivering the pitch (they don’t have to stay in contact with it).', source: 'wvfp' },
           { text: 'Each batter gets 5 pitches or 3 strikes; a foul on the last pitch extends the at-bat.', source: 'wvfp' },
           { text: 'The coach-pitcher may only talk to batters/runners between pitches; interfering with a batted ball makes the batter/runner out and returns runners.', source: 'wvfp' },
         ],
@@ -96,7 +96,9 @@ export const DIVISIONS: Division[] = [
           { text: '11-inch softball.', source: 'wvfp' },
           { text: 'Metal cleats are not allowed in 8U.', source: 'wvfp' },
           { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
-          { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'A batting helmet is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'If a player doesn’t have their own helmet or bat, WVFP has them available to use.', source: 'wvfp' },
+          { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
       },
       {
@@ -105,8 +107,8 @@ export const DIVISIONS: Division[] = [
         facts: [
           { text: 'No stealing, no walks or hit-by-pitch, and no dropped-third-strike rule.', source: 'wvfp' },
           { text: 'No intentional bunting and no infield fly rule.', source: 'wvfp' },
-          { text: 'A tee may be used in Games 1–5 only, and only the first time through the lineup; from Game 6 on, no tee.', source: 'wvfp' },
-          { text: 'Defense: 6 infielders start behind the 35-foot arc until the ball is hit; everyone else plays the outfield on the grass. One instructional defensive coach is allowed in the outfield (not during the end-of-season tournament).', source: 'wvfp' },
+          { text: 'A tee may be used only during the first half of the season’s games (for example, Games 1–5 of a 10-game season), and only the first time through the lineup; it’s not allowed in the second half.', source: 'wvfp' },
+          { text: 'Defense: 6 infielders start behind the 35-foot arc until the ball is hit; everyone else plays the outfield on the grass. Up to two instructional defensive coaches may be in the outfield — the same limit applies during tournaments.', source: 'wvfp' },
           { text: 'Runners advance one base on an infield hit unless a throw is misplayed or overthrown, and may score from third only on a batted ball.', source: 'wvfp' },
           { text: 'Players must be 8 or younger as of September 1 of the previous year and may not play down.', source: 'wvfp' },
         ],
@@ -164,7 +166,9 @@ export const DIVISIONS: Division[] = [
           { text: '11-inch softball.', source: 'wvfp' },
           { text: 'Metal cleats are not allowed in 10U.', source: 'wvfp' },
           { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
-          { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'A batting helmet is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'If a player doesn’t have their own helmet or bat, WVFP has them available to use.', source: 'wvfp' },
+          { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
       },
       {
@@ -229,7 +233,8 @@ export const DIVISIONS: Division[] = [
           { text: '12-inch softball.', source: 'wvfp' },
           { text: 'Metal cleats are not allowed in 12U.', source: 'wvfp' },
           { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
-          { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'A batting helmet is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'If a player doesn’t have their own helmet or bat, WVFP has them available to use.', source: 'wvfp' },
           { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
       },
@@ -295,7 +300,8 @@ export const DIVISIONS: Division[] = [
           { text: '12-inch softball.', source: 'wvfp' },
           { text: 'Metal cleats ARE allowed for 14U and 18U players during spring, fall, and all-stars. (Younger divisions — 8U/10U/12U — may not wear metal cleats.)', source: 'wvfp' },
           { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
-          { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'A batting helmet is required when batting; catchers must wear a mask.', source: 'wvfp' },
+          { text: 'If a player doesn’t have their own helmet or bat, WVFP has them available to use.', source: 'wvfp' },
           { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
       },
