@@ -4150,3 +4150,98 @@ game.
 choice of taking the result of the play or accepting the penalty.
 9. The DP player is charged with a substitution only when the DP is withdrawn from the batting order and the FLEX
 player is charged with a substitution only when the FLEX is no longer listed as playing defense.
+
+=== SOURCE: WVFP Fall Ball 2026 Rules — per-division league rules for FALL BALL; source of truth for fall ball and overrides the general WVFP Rules & Regulations where they conflict (updated Sept 2026) ===
+Note: These are WVFP's own Fall Ball 2026 division rules. For Fall Ball play they govern league games and take
+precedence over WVFP's general (spring/regular-season) Rules & Regulations wherever the two differ. The general
+WVFP Rules & Regulations remain the baseline for spring/regular season. Where a Fall Ball rule is silent, the WVFP
+division rules and then NFHS rules fill in. Notable differences from spring: shorter game lengths, per-division run
+caps, 8U tee use and coach-pitch-from-the-mound, per-division stealing/dropped-third-strike rules, a 10U hit-batter
+limit, and metal cleats being allowed for 14U/18U.
+
+--- 8U Fall Ball 2026 ---
+Quick reference: no new inning after 55 minutes; 5 runs or 3 outs per half-inning; pitching 35 ft; bases 60 ft;
+11-inch ball; no stealing; no dropped third strike; no walks or hit-by-pitch; coach pitch used; tee allowed Games
+1-5 (first time through the lineup only), prohibited from Game 6 on; metal cleats not allowed.
+Age: players must be 8 or younger prior to Sept 1 of the previous year; may not play down an age classification.
+Field/equipment: pitching mound 35 ft, bases 60 ft; 11-inch ball; face masks encouraged (not required); no metal
+cleats.
+Game administration: no new inning after 55 min; the home team preps/chalks the field; each team keeps score and
+the umpire scorecard is official on any discrepancy; coaches bring a complete lineup card (coach name, team
+name/number, player names, jersey numbers) to the plate pre-game; a half-inning ends at 3 outs or 5 runs (only an
+over-the-fence home run may exceed 5).
+Defense: the infield is inside the baselines; 6 infielders start behind the 35-ft arc near the pitcher's circle
+until the ball is hit; remaining players play outfield and start on the grass; one defensive coach is allowed in
+the outfield for instruction only (discouraged in the second half of the season; not allowed in the end-of-season
+tournament); defensive-coach interference awards the runner their base plus one (warning, then the coach must leave).
+Coach pitch: a coach pitches underhand and must stay in contact with the pitching mound; the coach may only talk to
+batters/runners between pitches; if the coach interferes with a batted ball the batter/runner is out and runners
+return; if a batted ball hits the coach while dodging, the ball is live; defense throws to the player/pitcher, not
+the coach.
+Batting: 5 pitches or 3 strikes; a foul on the last pitch extends the at-bat; no intentional bunting; no infield
+fly rule.
+Baserunning: the ball is dead when pitched and not hit; no stealing and no advancing on a wild pitch, passed ball,
+or throw-back (runners may take a lead once the ball leaves the pitcher's hand); no scoring from third on an
+overthrow (only on a batted ball); on an infield hit runners advance one base unless a throw is misplayed or
+overthrown (then one more base at their own risk); on an outfield hit runners advance until the ball returns to the
+infield; coaches may not physically assist runners (runner called out).
+
+--- 10U Fall Ball 2026 ---
+Quick reference: no new inning after 55 minutes; 5 runs or 3 outs per half-inning; pitching 35 ft; bases 60 ft;
+11-inch ball; stealing allowed after the ball leaves the pitcher's hand; dropped third strike in effect (with the
+10U wild-pitch scoring restriction); coach pitch not allowed; metal cleats not allowed.
+Hit-batter limit: a pitcher must leave the pitching position after hitting 2 batters in the same inning (she may
+play another position and return to pitch in a later inning); after returning, she must leave again after every 3
+additional batters hit, for the rest of the game.
+Age: players must be 10 or younger prior to Sept 1 of the previous year; may not play down.
+Field/equipment: pitching 35 ft, bases 60 ft; 11-inch ball; face masks encouraged; no metal cleats.
+Game administration: no new inning after 55 min; home team preps the field; each team scores (umpire card official
+on discrepancy); lineup card at the plate pre-game; no infield warmups (outfield/foul territory only); a half-inning
+ends at 3 outs or 5 runs (an over-the-fence home run may exceed).
+Defense & lineup: up to 4 outfielders and 6 infielders; outfielders on the grass until the ball crosses the plate;
+bat all players present (an absent player in the lineup takes an out each time her spot comes up until she arrives;
+a coach may remove an absent player, who then may not be re-added; a sick/injured player may not reenter); courtesy
+runners allowed for the pitcher and catcher.
+Baserunning & stealing: steal any base including home at your own risk after the ball leaves the pitcher's hand;
+10U scoring restriction — no scoring from third on a wild pitch from the pitcher to the catcher (a runner may score
+from third on a batted ball, on a defensive play/throw, or by stealing home when the defense makes a play); slide
+when a play is being made; coaches may not physically assist runners.
+Dropped third strike: in effect — with fewer than 2 outs and first base open, the batter may try for first if the
+third strike isn't caught; with fewer than 2 outs and first base occupied, the batter is out; with 2 outs the
+batter and runners may advance at their own risk; this does not override the wild-pitch scoring restriction.
+Other: coach pitch is not allowed; NFHS rules apply where these rules are silent.
+
+--- 12U Fall Ball 2026 ---
+Quick reference: no new inning after 55 minutes; 6 runs or 3 outs per half-inning; pitching 40 ft; bases 60 ft;
+12-inch ball; stealing allowed after the ball leaves the pitcher's hand; dropped third strike in effect; coach
+pitch not allowed; metal cleats not allowed.
+Age: players must be 12 or younger prior to Sept 1 of the previous year; may not play down.
+Field/equipment: pitching 40 ft, bases 60 ft; 12-inch ball; face masks encouraged; no metal cleats.
+Game administration: no new inning after 55 min; home team preps the field; each team scores (umpire card official
+on discrepancy); lineup card at the plate pre-game; no infield warmups; a half-inning ends at 3 outs or 6 runs (an
+over-the-fence home run may exceed).
+Defense & lineup: up to 4 outfielders and 6 infielders; outfielders on the grass until the ball crosses the plate;
+bat all players present (same absent/removed/injured handling as 10U); courtesy runners for the pitcher and catcher.
+Baserunning & stealing: steal after the ball leaves the pitcher's hand, advancing as many bases as chosen at your
+own risk; dropped third strike in effect; slide when a play is being made; coaches may not physically assist runners.
+Other: coach pitch is not allowed; NFHS rules apply where these rules are silent.
+
+--- 14/18U Fall Ball 2026 ---
+Quick reference: no new inning after 65 minutes; 6 runs or 3 outs per half-inning; pitching 43 ft; bases 60 ft;
+12-inch ball; stealing allowed after the ball leaves the pitcher's hand; dropped third strike in effect; coach
+pitch not allowed; metal cleats allowed for 14U/18U.
+Age: players must be 18 or younger prior to Sept 1 of the previous year; may not play down.
+Field/equipment: pitching 43 ft, bases 60 ft; 12-inch ball; face masks encouraged; METAL CLEATS ARE ALLOWED for
+14U and 18U age groups during spring, fall, and all-stars. (This supersedes the older blanket WVFP metal-cleats ban
+for these two divisions; 8U/10U/12U players still may NOT wear metal cleats.)
+Game administration: no new inning after 65 min; home team preps the field; each team scores (umpire card official
+on discrepancy); lineup card at the plate pre-game; no infield warmups; a half-inning ends at 3 outs or 6 runs (an
+over-the-fence home run may exceed).
+Defense & lineup: up to 4 outfielders and 6 infielders; outfielders on the grass until the ball crosses the plate;
+bat all players present (same absent/removed/injured handling); courtesy runners for the pitcher and catcher.
+Baserunning & stealing: steal after release, advancing as many bases as chosen at your own risk; dropped third
+strike in effect; slide when a play is being made; coaches may not physically assist runners.
+Other: coach pitch is not allowed; NFHS rules apply where these rules are silent.
+
+For all Fall Ball divisions: questions or unusual situations are handled calmly through the umpire during the game
+and reported to the WVFP Board when needed.

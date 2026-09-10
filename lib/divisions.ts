@@ -275,7 +275,7 @@ export const DIVISIONS: Division[] = [
         title: 'Equipment',
         facts: [
           { text: '12-inch ball.', source: 'wvfp' },
-          { text: 'Metal cleats are not allowed at any WVFP activity — but see Tournament Play for how this differs at D1 events.', source: 'wvfp' },
+          { text: 'Metal cleats ARE allowed for 14U and 18U players during spring, fall, and all-stars. (Younger divisions — 8U/10U/12U — may not wear metal cleats.)', source: 'wvfp' },
           { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
           { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
@@ -294,7 +294,7 @@ export const DIVISIONS: Division[] = [
         facts: [
           { text: 'D1 tournament pitching distance is 43 feet.', source: 'd1' },
           { text: 'Championship games run about 90 minutes.', source: 'd1' },
-          { text: 'Metal cleats ARE allowed for 14U/16U/18U at D1 tournaments — this differs from WVFP’s blanket ban. No metal cleats at a regular WVFP league game; older divisions may wear them at a D1-sanctioned tournament.', source: 'd1' },
+          { text: 'Metal cleats are also allowed for 14U/16U/18U at D1 tournaments.', source: 'd1' },
         ],
       },
     ],
