@@ -41,11 +41,45 @@ function formatBotText(text: string): string {
 function BotIcon() {
   return (
     <svg className="bot-icon" viewBox="0 0 100 100" aria-hidden="true">
-      <circle cx="50" cy="50" r="47" fill="none" stroke="#14171A" strokeWidth="3" />
-      <text x="50" y="61" textAnchor="middle" fontFamily="Oswald, sans-serif" fontWeight="700" fontSize="40" fill="#0FA8A2">
+      <circle cx="50" cy="50" r="47" fill="none" stroke="#821415" strokeWidth="3" />
+      <text x="50" y="62" textAnchor="middle" fontFamily="'Roboto Slab', serif" fontWeight="800" fontSize="40" fill="#B61816">
         W
       </text>
     </svg>
+  );
+}
+
+// Header badge. Uses the official logo at /logo.png when present; falls back to
+// a clean on-brand mark until the master logo file is added to /public.
+function Logo() {
+  const [failed, setFailed] = useState(false);
+  const ref = useRef<HTMLImageElement>(null);
+
+  // If the image already failed before React hydrated (e.g. /logo.png is 404),
+  // the onError event won't fire again — detect it on mount via naturalWidth.
+  useEffect(() => {
+    const el = ref.current;
+    if (el && el.complete && el.naturalWidth === 0) setFailed(true);
+  }, []);
+
+  if (failed) {
+    return (
+      <div className="logo-fallback" role="img" aria-label="West Valley Fastpitch">
+        WVFP
+      </div>
+    );
+  }
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      ref={ref}
+      className="logo"
+      src="/logo.png"
+      alt="West Valley Fastpitch"
+      width={52}
+      height={52}
+      onError={() => setFailed(true)}
+    />
   );
 }
 
@@ -193,10 +227,10 @@ export default function Page() {
   return (
     <div className={appState === 'chat' ? 'app chat' : 'app'}>
       <header>
+        <Logo />
         <div className="headings">
-          <h1>
-            West Valley Fastpitch <span>Rules Assistant</span>
-          </h1>
+          <p className="eyebrow">West Valley Fastpitch</p>
+          <h1>Rules Assistant</h1>
         </div>
       </header>
 
