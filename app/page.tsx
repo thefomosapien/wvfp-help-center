@@ -229,7 +229,6 @@ export default function Page() {
       <header>
         <Logo />
         <div className="headings">
-          <p className="eyebrow">West Valley Fastpitch</p>
           <h1>Rules Assistant</h1>
         </div>
       </header>

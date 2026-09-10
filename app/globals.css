@@ -48,33 +48,32 @@ body {
 
 /* ---------- Header ---------- */
 header {
-  padding: max(16px, env(safe-area-inset-top)) 20px 14px;
+  padding: max(18px, env(safe-area-inset-top)) 20px 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 14px;
+  text-align: center;
+  gap: 8px;
   flex-shrink: 0;
 }
-.logo { width: 52px; height: 52px; object-fit: contain; flex-shrink: 0; display: block; }
+.logo { width: 96px; height: 96px; object-fit: contain; flex-shrink: 0; display: block; }
 .logo-fallback {
-  width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+  width: 96px; height: 96px; border-radius: 50%; flex-shrink: 0;
   background: var(--red); color: var(--paper);
-  font-family: 'Roboto Slab', serif; font-weight: 800; font-size: 15px; letter-spacing: .02em;
+  font-family: 'Roboto Slab', serif; font-weight: 800; font-size: 26px; letter-spacing: .02em;
   display: flex; align-items: center; justify-content: center;
-  border: 2px solid var(--red-deep);
+  border: 3px solid var(--red-deep);
 }
-.headings { flex: 1; min-width: 0; }
-.eyebrow {
-  font-family: 'Lato', sans-serif; font-weight: 700; text-transform: uppercase;
-  letter-spacing: .09em; font-size: 10.5px; color: var(--red-deep); margin: 0 0 2px;
-}
+.headings { min-width: 0; }
 h1 {
   font-family: 'Roboto Slab', serif;
   font-weight: 800;
   letter-spacing: .01em;
-  font-size: 20px;
+  font-size: 21px;
   margin: 0;
   line-height: 1.15;
   color: var(--ink);
+  text-transform: uppercase;
 }
 h1 span { color: var(--red); }
 
@@ -304,8 +303,10 @@ button.send svg { width: 19px; height: 19px; }
 /* On short/mobile screens, reclaim vertical room in the chat view so more of
    the conversation is visible when the keyboard is open. */
 @media (max-width: 600px) {
-  .app.chat header { padding-top: max(12px, env(safe-area-inset-top)); padding-bottom: 10px; }
-  .app.chat h1 { font-size: 18px; }
+  .app.chat header { padding-top: max(10px, env(safe-area-inset-top)); padding-bottom: 8px; gap: 5px; }
+  .app.chat .logo, .app.chat .logo-fallback { width: 52px; height: 52px; }
+  .app.chat .logo-fallback { font-size: 15px; border-width: 2px; }
+  .app.chat h1 { font-size: 17px; }
 }
 
 @media (prefers-reduced-motion: reduce) { .typing span { animation: none; } }
