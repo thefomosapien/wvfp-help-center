@@ -4151,13 +4151,12 @@ choice of taking the result of the play or accepting the penalty.
 9. The DP player is charged with a substitution only when the DP is withdrawn from the batting order and the FLEX
 player is charged with a substitution only when the FLEX is no longer listed as playing defense.
 
-=== SOURCE: WVFP Fall Ball 2026 Rules — per-division league rules for FALL BALL; source of truth for fall ball and overrides the general WVFP Rules & Regulations where they conflict (updated Sept 2026) ===
-Note: These are WVFP's own Fall Ball 2026 division rules. For Fall Ball play they govern league games and take
-precedence over WVFP's general (spring/regular-season) Rules & Regulations wherever the two differ. The general
-WVFP Rules & Regulations remain the baseline for spring/regular season. Where a Fall Ball rule is silent, the WVFP
-division rules and then NFHS rules fill in. Notable differences from spring: shorter game lengths, per-division run
-caps, 8U tee use and coach-pitch-from-the-mound, per-division stealing/dropped-third-strike rules, a 10U hit-batter
-limit, and metal cleats being allowed for 14U/18U.
+=== SOURCE: WVFP Current Division Playing Rules (2026 update, distributed as the "Fall Ball 2026" docs) — WVFP's most up-to-date per-division game rules; the authoritative source of truth for how games are played, overriding the older 2022 Rules & Regulations wherever they differ ===
+Note: These are WVFP's own current per-division playing rules. WVFP's rules evolve slightly each season, but treat
+them as one consistent, current rule set — these are the authoritative rules for how games are played in each
+division (8U, 10U, 12U, 14/18U). Where they differ from the older 2022 WVFP Rules & Regulations, THESE win. The
+2022 Rules & Regulations and By-Laws still govern everything these division docs don't cover (registration, team
+formation, all-stars, coaches and conduct, insurance, snack bar, etc.). NFHS fills in only where WVFP is silent.
 
 --- 8U Fall Ball 2026 ---
 Quick reference: no new inning after 55 minutes; 5 runs or 3 outs per half-inning; pitching 35 ft; bases 60 ft;

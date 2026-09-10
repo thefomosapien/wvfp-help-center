@@ -1,12 +1,12 @@
 // Static help-center content, organized by WVFP age division -> subcategory.
 // This is a curated, human-readable reference rendered directly in the UI (no
-// AI call). Content is drawn from the same sources as the assistant and weighted
-// the same way: WVFP's own Rules & Regulations are primary, D1 Prospects rules
-// apply to sanctioned tournaments, and any general softball rule (NFHS) is
-// summarized in plain language rather than quoted, and only where it adds value.
+// AI call). It reflects WVFP's current per-division playing rules (the 2026
+// update), weighted the same way the assistant is: WVFP's own rules are
+// primary, D1 Prospects rules apply to sanctioned tournaments, and any general
+// softball rule (NFHS) is summarized in plain language rather than quoted.
 //
 // Source tags:
-//   'wvfp' — WVFP's own Rules & Regulations / By-Laws (regular season league play)
+//   'wvfp' — WVFP's own current division playing rules / league rules
 //   'd1'   — D1 Prospects Master Rules (D1-sanctioned tournaments)
 //   'nfhs' — general high school softball rule, summarized (not WVFP-binding)
 
@@ -37,9 +37,22 @@ export interface Division {
   subtopics: SubTopic[];
 }
 
-// A note shown once at the top of the section, since several figures are dated.
 export const DISCLAIMER =
-  'This reference is drawn from WVFP’s rules, D1 Prospects’ tournament rules, and general softball rules. Some figures (fees, dates, and season-specific rules) may be out of date — confirm current specifics with the WVFP Board. For anything not covered here, use the search bar to ask the assistant.';
+  'This reference reflects WVFP’s current division playing rules, along with D1 Prospects’ tournament rules and general softball rules. It’s a convenience tool, not an official ruling — confirm anything critical with the WVFP Board. For anything not covered here, use the search bar to ask the assistant.';
+
+// Lineup/attendance handling shared by the player-pitch divisions.
+const LINEUP_FACTS: Fact[] = [
+  { text: 'Teams bat all players present. A player in the lineup who is absent for her at-bat takes an out each time her spot comes up until she arrives.', source: 'wvfp' },
+  { text: 'A coach may remove an absent player from the lineup (she then may not be re-added); a player who becomes sick or injured may not reenter the game.', source: 'wvfp' },
+  { text: 'Courtesy runners may be used for the pitcher and catcher.', source: 'wvfp' },
+];
+
+const ADMIN_FACTS: Fact[] = [
+  { text: 'The home team is responsible for prepping and chalking/lining the field.', source: 'wvfp' },
+  { text: 'Each team keeps score; the umpire’s scorecard is the official score if there’s a discrepancy.', source: 'wvfp' },
+  { text: 'Coaches bring a complete lineup card (coach name, team name/number, player names, jersey numbers) to the plate before the game.', source: 'wvfp' },
+  { text: 'Teams may not warm up on the infield — outfield or foul territory only.', source: 'wvfp' },
+];
 
 export const DIVISIONS: Division[] = [
   {
@@ -54,36 +67,35 @@ export const DIVISIONS: Division[] = [
         facts: [
           { text: 'Pitching distance: 35 feet.', source: 'wvfp' },
           { text: 'Base paths: 60 feet.', source: 'wvfp' },
-          { text: 'Ball: 11-inch. An approved baseball, tee ball, or official softball may be used for batting.', source: 'wvfp' },
+          { text: 'Ball: 11-inch softball.', source: 'wvfp' },
         ],
       },
       {
         id: 'format',
         title: 'Game Format',
         facts: [
-          { text: 'Games are 55 minutes (shorter than the 70-minute standard for older divisions).', source: 'wvfp' },
-          { text: 'Each side retires after 6 runs or three outs, whichever comes first.', source: 'wvfp' },
-          { text: 'Games may end in a tie — both teams are credited with a win on the stat sheet.', source: 'wvfp' },
-          { text: 'A team needs at least 8 players to hold a legitimate game; playing with 8, an out is recorded for the missing 9th spot each time through the order.', source: 'wvfp' },
-          { text: 'No division champion is crowned in 8U.', source: 'wvfp' },
+          { text: 'No new inning starts after 55 minutes.', source: 'wvfp' },
+          { text: 'A half-inning ends at 3 outs or 5 runs, whichever comes first — only an over-the-fence home run may exceed 5.', source: 'wvfp' },
+          { text: 'Teams bat all players present; an absent player in the lineup takes an out each time her spot comes up until she arrives.', source: 'wvfp' },
+          { text: 'The home team preps and chalks the field; each team keeps score and the umpire’s scorecard is official if they disagree.', source: 'wvfp' },
         ],
       },
       {
         id: 'pitching',
         title: 'Pitching (Coach Pitch)',
         facts: [
-          { text: 'An adult from the batting team pitches; the coach-pitcher is not a defensive player and may not coach the batter while pitching.', source: 'wvfp' },
-          { text: 'The adult pitcher must stay at least 30 feet from the plate to deliver the pitch.', source: 'wvfp' },
-          { text: 'Each batter gets five pitches or three strikes. A foul on the last pitch earns another pitch; no one is out on a foul ball.', source: 'wvfp' },
-          { text: 'No base is awarded for being hit by a pitch.', source: 'wvfp' },
+          { text: 'A coach pitches underhand to their own team and must stay in contact with the pitching mound.', source: 'wvfp' },
+          { text: 'Each batter gets 5 pitches or 3 strikes; a foul on the last pitch extends the at-bat.', source: 'wvfp' },
+          { text: 'The coach-pitcher may only talk to batters/runners between pitches; interfering with a batted ball makes the batter/runner out and returns runners.', source: 'wvfp' },
         ],
       },
       {
         id: 'equipment',
         title: 'Equipment',
         facts: [
-          { text: '11-inch ball.', source: 'wvfp' },
-          { text: 'Metal cleats are not allowed at any WVFP activity, for any age.', source: 'wvfp' },
+          { text: '11-inch softball.', source: 'wvfp' },
+          { text: 'Metal cleats are not allowed in 8U.', source: 'wvfp' },
+          { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
           { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
         ],
       },
@@ -91,10 +103,12 @@ export const DIVISIONS: Division[] = [
         id: 'notes',
         title: 'Division Notes',
         facts: [
-          { text: 'Runners may only score on a batted ball; no stealing, and a batter may not advance to first on a dropped third strike.', source: 'wvfp' },
-          { text: 'No infield fly rule.', source: 'wvfp' },
-          { text: 'On a ball hit in the infield, play continues until the runner reaches first, then the ball is dead; only one overthrow per batted ball is allowed.', source: 'wvfp' },
-          { text: 'Safety rule: no defensive player may set up in front of the pitcher’s-plate line until the pitch is released.', source: 'wvfp' },
+          { text: 'No stealing, no walks or hit-by-pitch, and no dropped-third-strike rule.', source: 'wvfp' },
+          { text: 'No intentional bunting and no infield fly rule.', source: 'wvfp' },
+          { text: 'A tee may be used in Games 1–5 only, and only the first time through the lineup; from Game 6 on, no tee.', source: 'wvfp' },
+          { text: 'Defense: 6 infielders start behind the 35-foot arc until the ball is hit; everyone else plays the outfield on the grass. One instructional defensive coach is allowed in the outfield (not during the end-of-season tournament).', source: 'wvfp' },
+          { text: 'Runners advance one base on an infield hit unless a throw is misplayed or overthrown, and may score from third only on a batted ball.', source: 'wvfp' },
+          { text: 'Players must be 8 or younger as of September 1 of the previous year and may not play down.', source: 'wvfp' },
         ],
       },
       {
@@ -104,7 +118,7 @@ export const DIVISIONS: Division[] = [
           { text: 'In D1-sanctioned tournaments, the 8U championship game runs about 60 minutes.', source: 'd1' },
           { text: 'Pool play caps each team at 6 runs per half inning (an over-the-fence home run can exceed it).', source: 'd1' },
           { text: 'A team may play short-handed with at least 8 batters (an out is taken for the empty spot); below 8 is a forfeit.', source: 'd1' },
-          { text: 'Metal cleats are not permitted for 8U at D1 tournaments either.', source: 'd1' },
+          { text: 'Metal cleats are not permitted for 8U at D1 tournaments.', source: 'd1' },
         ],
       },
     ],
@@ -121,34 +135,35 @@ export const DIVISIONS: Division[] = [
         facts: [
           { text: 'Pitching distance: 35 feet.', source: 'wvfp' },
           { text: 'Base paths: 60 feet.', source: 'wvfp' },
-          { text: 'Ball: 11-inch.', source: 'wvfp' },
+          { text: 'Ball: 11-inch softball.', source: 'wvfp' },
         ],
       },
       {
         id: 'format',
         title: 'Game Format',
         facts: [
-          { text: 'Games are 70 minutes.', source: 'wvfp' },
-          { text: 'A 6-run rule or mercy rule applies (as in every division).', source: 'wvfp' },
-          { text: 'On a tie, 10U ends when time expires by finishing the inning — no extra inning is played.', source: 'wvfp' },
-          { text: 'A team needs at least 8 players; playing with 8, an out is recorded for the missing 9th spot.', source: 'wvfp' },
+          { text: 'No new inning starts after 55 minutes.', source: 'wvfp' },
+          { text: 'A half-inning ends at 3 outs or 5 runs, whichever comes first — only an over-the-fence home run may exceed 5.', source: 'wvfp' },
+          ...LINEUP_FACTS,
+          ...ADMIN_FACTS,
         ],
       },
       {
         id: 'pitching',
         title: 'Pitching',
         facts: [
-          { text: 'Players pitch. The standard limit is 12 pitching outs per week (a “week” is two consecutive scheduled games).', source: 'wvfp' },
-          { text: 'Note: a recent season tested suspending pitch-count limits entirely — confirm the current season’s rule with the WVFP Board.', source: 'wvfp' },
-          { text: 'Exceeding the pitching limit is a forfeit for the violating team.', source: 'wvfp' },
+          { text: 'Players pitch — coach pitch is not allowed.', source: 'wvfp' },
+          { text: 'Hit-batter limit: a pitcher must leave the pitching position after hitting 2 batters in the same inning (she may play another position and return to pitch in a later inning).', source: 'wvfp' },
+          { text: 'After returning, she must leave the pitching position again after every 3 additional batters she hits, for the rest of the game.', source: 'wvfp' },
         ],
       },
       {
         id: 'equipment',
         title: 'Equipment',
         facts: [
-          { text: '11-inch ball.', source: 'wvfp' },
-          { text: 'Metal cleats are not allowed at any WVFP activity.', source: 'wvfp' },
+          { text: '11-inch softball.', source: 'wvfp' },
+          { text: 'Metal cleats are not allowed in 10U.', source: 'wvfp' },
+          { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
           { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
         ],
       },
@@ -156,8 +171,11 @@ export const DIVISIONS: Division[] = [
         id: 'notes',
         title: 'Division Notes',
         facts: [
-          { text: 'No infield fly rule.', source: 'wvfp' },
-          { text: 'Roving outfielders are allowed; all outfielders and the rover must stay at least 5 feet behind the baseline until the pitch is made.', source: 'wvfp' },
+          { text: 'Stealing is allowed after the ball leaves the pitcher’s hand — any base, including home, at the runner’s own risk.', source: 'wvfp' },
+          { text: '10U scoring restriction: a runner may not score from third on a wild pitch from the pitcher to the catcher. She may score from third on a batted ball, a defensive play/throw, or by stealing home when the defense makes a play.', source: 'wvfp' },
+          { text: 'Dropped third strike is in effect: with fewer than 2 outs and first base open, the batter may try for first if it isn’t caught; with first base occupied she’s out; with 2 outs, the batter and runners may advance at their own risk.', source: 'wvfp' },
+          { text: 'Defense: up to 4 outfielders and 6 infielders; outfielders stay on the grass until the ball crosses the plate.', source: 'wvfp' },
+          { text: 'Players must be 10 or younger as of September 1 of the previous year and may not play down.', source: 'wvfp' },
         ],
       },
       {
@@ -184,34 +202,33 @@ export const DIVISIONS: Division[] = [
         facts: [
           { text: 'Pitching distance: 40 feet.', source: 'wvfp' },
           { text: 'Base paths: 60 feet.', source: 'wvfp' },
-          { text: 'Ball: 12-inch.', source: 'wvfp' },
+          { text: 'Ball: 12-inch softball.', source: 'wvfp' },
         ],
       },
       {
         id: 'format',
         title: 'Game Format',
         facts: [
-          { text: 'Games are 70 minutes.', source: 'wvfp' },
-          { text: 'A 6-run rule or mercy rule applies.', source: 'wvfp' },
-          { text: 'On a tie, one extra inning is played using the International Tie Breaker; if still tied, each team earns one standings point.', source: 'wvfp' },
-          { text: 'A team needs at least 8 players; playing with 8, an out is recorded for the missing 9th spot.', source: 'wvfp' },
+          { text: 'No new inning starts after 55 minutes.', source: 'wvfp' },
+          { text: 'A half-inning ends at 3 outs or 6 runs, whichever comes first — only an over-the-fence home run may exceed 6.', source: 'wvfp' },
+          ...LINEUP_FACTS,
+          ...ADMIN_FACTS,
         ],
       },
       {
         id: 'pitching',
         title: 'Pitching',
         facts: [
-          { text: 'Standard limit is 12 pitching outs per week (a “week” is two consecutive scheduled games).', source: 'wvfp' },
-          { text: 'Note: a recent season tested suspending pitch-count limits — confirm the current rule with the WVFP Board.', source: 'wvfp' },
-          { text: 'Exceeding the pitching limit is a forfeit for the violating team.', source: 'wvfp' },
+          { text: 'Players pitch — coach pitch is not allowed.', source: 'wvfp' },
         ],
       },
       {
         id: 'equipment',
         title: 'Equipment',
         facts: [
-          { text: '12-inch ball.', source: 'wvfp' },
-          { text: 'Metal cleats are not allowed at any WVFP activity.', source: 'wvfp' },
+          { text: '12-inch softball.', source: 'wvfp' },
+          { text: 'Metal cleats are not allowed in 12U.', source: 'wvfp' },
+          { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
           { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
           { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
@@ -220,8 +237,11 @@ export const DIVISIONS: Division[] = [
         id: 'notes',
         title: 'Division Notes',
         facts: [
-          { text: 'Play follows USA Softball rules except where WVFP’s own rules modify them.', source: 'wvfp' },
-          { text: 'Roving outfielders are allowed; all outfielders and the rover must stay at least 5 feet behind the baseline until the pitch is made.', source: 'wvfp' },
+          { text: 'Stealing is allowed after the ball leaves the pitcher’s hand; runners may advance as many bases as they choose at their own risk.', source: 'wvfp' },
+          { text: 'Dropped third strike is in effect.', source: 'wvfp' },
+          { text: 'Defense: up to 4 outfielders and 6 infielders; outfielders stay on the grass until the ball crosses the plate.', source: 'wvfp' },
+          { text: 'Coaches may not physically help runners stop or go; a runner contacted that way is called out.', source: 'wvfp' },
+          { text: 'Players must be 12 or younger as of September 1 of the previous year and may not play down.', source: 'wvfp' },
         ],
       },
       {
@@ -248,34 +268,33 @@ export const DIVISIONS: Division[] = [
         facts: [
           { text: 'Pitching distance: 43 feet.', source: 'wvfp' },
           { text: 'Base paths: 60 feet.', source: 'wvfp' },
-          { text: 'Ball: 12-inch.', source: 'wvfp' },
+          { text: 'Ball: 12-inch softball.', source: 'wvfp' },
         ],
       },
       {
         id: 'format',
         title: 'Game Format',
         facts: [
-          { text: 'Games are 70 minutes.', source: 'wvfp' },
-          { text: 'A 6-run rule or mercy rule applies.', source: 'wvfp' },
-          { text: 'On a tie, one extra inning is played using the International Tie Breaker; if still tied, each team earns one standings point.', source: 'wvfp' },
-          { text: '14U needs at least 8 players (an out is recorded for the missing 9th spot); 18U needs only 7 (an out is recorded for the missing 8th spot).', source: 'wvfp' },
+          { text: 'No new inning starts after 65 minutes.', source: 'wvfp' },
+          { text: 'A half-inning ends at 3 outs or 6 runs, whichever comes first — only an over-the-fence home run may exceed 6.', source: 'wvfp' },
+          ...LINEUP_FACTS,
+          ...ADMIN_FACTS,
         ],
       },
       {
         id: 'pitching',
         title: 'Pitching',
         facts: [
-          { text: 'Standard weekly pitching-out limit: 15 outs for 14U, 18 outs for 18U (a “week” is two consecutive scheduled games).', source: 'wvfp' },
-          { text: 'Note: a recent season tested suspending pitch-count limits — confirm the current rule with the WVFP Board.', source: 'wvfp' },
-          { text: 'Exceeding the pitching limit is a forfeit for the violating team.', source: 'wvfp' },
+          { text: 'Players pitch — coach pitch is not allowed.', source: 'wvfp' },
         ],
       },
       {
         id: 'equipment',
         title: 'Equipment',
         facts: [
-          { text: '12-inch ball.', source: 'wvfp' },
+          { text: '12-inch softball.', source: 'wvfp' },
           { text: 'Metal cleats ARE allowed for 14U and 18U players during spring, fall, and all-stars. (Younger divisions — 8U/10U/12U — may not wear metal cleats.)', source: 'wvfp' },
+          { text: 'Face masks are encouraged but not required.', source: 'wvfp' },
           { text: 'A batting helmet (provided by WVFP) is required when batting; catchers must wear a mask.', source: 'wvfp' },
           { text: 'Bats must carry an approved certification mark and be free of alterations; an illegal or altered bat can get the player and head coach removed.', source: 'nfhs' },
         ],
@@ -284,8 +303,11 @@ export const DIVISIONS: Division[] = [
         id: 'notes',
         title: 'Division Notes',
         facts: [
-          { text: 'Play follows USA Softball rules except where WVFP’s own rules modify them.', source: 'wvfp' },
-          { text: 'Roving outfielders are allowed; all outfielders and the rover must stay at least 5 feet behind the baseline until the pitch is made.', source: 'wvfp' },
+          { text: 'Stealing is allowed after the ball leaves the pitcher’s hand; runners may advance as many bases as they choose at their own risk.', source: 'wvfp' },
+          { text: 'Dropped third strike is in effect.', source: 'wvfp' },
+          { text: 'Defense: up to 4 outfielders and 6 infielders; outfielders stay on the grass until the ball crosses the plate.', source: 'wvfp' },
+          { text: 'Coaches may not physically help runners stop or go; a runner contacted that way is called out.', source: 'wvfp' },
+          { text: 'Players must be 18 or younger as of September 1 of the previous year and may not play down.', source: 'wvfp' },
         ],
       },
       {
