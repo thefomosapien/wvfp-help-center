@@ -152,6 +152,9 @@ h1 span { color: var(--red); }
 
 .category-detail-head { margin-bottom: 16px; }
 .category-detail-head .cat-icon { margin-bottom: 10px; }
+/* The badge is an inline <span>; make it block-level here so its vertical
+   padding is respected and the h2 title below doesn't overlap it. */
+.category-detail-head .division-badge { display: inline-block; margin-bottom: 10px; }
 .category-detail-head h2 {
   font-family: 'Roboto Slab', serif; font-weight: 800; text-transform: uppercase;
   letter-spacing: .01em; font-size: 19px; margin: 0; color: var(--ink);
