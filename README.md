@@ -45,11 +45,11 @@ Only `ANTHROPIC_API_KEY` is required to run — there is no database to configur
 
 ## Model & cost
 
-- Default model: `claude-haiku-4-5-20251001` (cheap, fast, plenty capable for grounded
-  Q&A). Set `ANTHROPIC_MODEL=claude-sonnet-5` to use the sharper model (~2x cost).
-- The ~20K-token system prompt is sent with a `cache_control` block, so its reused
-  portion is billed at the cheap cached-read rate after the first request. Expect
-  roughly $1–3/month for typical rec-league traffic.
+- Default model: `claude-sonnet-5` (stronger reasoning for the layered, multi-source
+  rulebook). Set `ANTHROPIC_MODEL=claude-haiku-4-5` to drop to the cheaper/faster model.
+- The large system prompt (instructions + the full knowledge base) is sent with a
+  `cache_control` block, so its reused portion is billed at the cheap cached-read rate
+  after the first request. Expect a few dollars per month for typical rec-league traffic.
 
 ## Abuse protection
 

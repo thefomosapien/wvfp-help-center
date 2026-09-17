@@ -5,7 +5,7 @@ import { rateLimit, clientIp } from '@/lib/rateLimit';
 export const runtime = 'nodejs';
 
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
-const DEFAULT_MODEL = 'claude-haiku-4-5-20251001';
+const DEFAULT_MODEL = 'claude-sonnet-5';
 const MAX_TOKENS = 1000;
 
 interface ClientMessage {
