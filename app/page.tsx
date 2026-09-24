@@ -74,10 +74,10 @@ function Logo() {
     <img
       ref={ref}
       className="logo"
-      src="/logo.png"
+      src="/logo.svg"
       alt="West Valley Fastpitch"
-      width={52}
-      height={52}
+      width={300}
+      height={111}
       onError={() => setFailed(true)}
     />
   );

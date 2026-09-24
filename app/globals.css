@@ -56,11 +56,11 @@ header {
   gap: 8px;
   flex-shrink: 0;
 }
-.logo { width: 96px; height: 96px; object-fit: contain; flex-shrink: 0; display: block; }
+.logo { width: min(300px, 78vw); height: auto; flex-shrink: 0; display: block; }
 .logo-fallback {
-  width: 96px; height: 96px; border-radius: 50%; flex-shrink: 0;
+  width: min(300px, 78vw); height: 64px; border-radius: 32px; flex-shrink: 0;
   background: var(--red); color: var(--paper);
-  font-family: 'Roboto Slab', serif; font-weight: 800; font-size: 26px; letter-spacing: .02em;
+  font-family: 'Roboto Slab', serif; font-weight: 800; font-size: 22px; letter-spacing: .04em;
   display: flex; align-items: center; justify-content: center;
   border: 3px solid var(--red-deep);
 }
@@ -307,8 +307,8 @@ button.send svg { width: 19px; height: 19px; }
    the conversation is visible when the keyboard is open. */
 @media (max-width: 600px) {
   .app.chat header { padding-top: max(10px, env(safe-area-inset-top)); padding-bottom: 8px; gap: 5px; }
-  .app.chat .logo, .app.chat .logo-fallback { width: 52px; height: 52px; }
-  .app.chat .logo-fallback { font-size: 15px; border-width: 2px; }
+  .app.chat .logo { width: min(200px, 60vw); }
+  .app.chat .logo-fallback { width: min(200px, 60vw); height: 46px; border-radius: 23px; font-size: 15px; border-width: 2px; }
   .app.chat h1 { font-size: 17px; }
 }
 
