@@ -6,7 +6,7 @@ export const runtime = 'nodejs';
 
 const ANTHROPIC_URL = 'https://api.anthropic.com/v1/messages';
 const DEFAULT_MODEL = 'claude-sonnet-5';
-const MAX_TOKENS = 1000;
+const MAX_TOKENS = 1500;
 
 interface ClientMessage {
   role: 'user' | 'assistant';
